@@ -2,16 +2,15 @@
 # point it at your GitHub repo. It creates the web service AND the Postgres
 # database and wires DATABASE_URL between them.
 #
-# NOTE: a persistent disk (needed so uploaded photos/attachments survive
-# redeploys) requires a paid web-service plan on Render. Check Render's
-# current plans/pricing; if you don't need uploads to persist, delete the
-# `disk:` block and the UPLOAD_FOLDER line.
+# Free web services do not support persistent disks. Uploaded photos and
+# attachments are therefore temporary and may disappear after a redeploy
+# or service restart.
 services:
   - type: web
     name: ai-notes
     runtime: python
-    rootDir: backend
-    plan: starter
+    rootDir: ai-notes-app/ai-notes-app/backend
+    plan: free
     buildCommand: pip install -r requirements-prod.txt
     startCommand: gunicorn --workers 1 --threads 4 --timeout 120 --bind 0.0.0.0:$PORT wsgi:app
     healthCheckPath: /api/health
@@ -28,12 +27,6 @@ services:
         value: "1"
       - key: AI_PROVIDER
         value: local
-      - key: UPLOAD_FOLDER
-        value: /var/data/uploads
-    disk:
-      name: uploads
-      mountPath: /var/data
-      sizeGB: 1
 
 databases:
   - name: ai-notes-db
