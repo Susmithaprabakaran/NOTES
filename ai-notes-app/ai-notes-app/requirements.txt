@@ -1,0 +1,3 @@
+# Root-level pointer so Heroku-style hosts (which look for requirements.txt
+# at the repo root) install the lean production set. See DEPLOY.md.
+-r backend/requirements-prod.txt

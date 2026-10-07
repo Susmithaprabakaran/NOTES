@@ -1,0 +1,17 @@
+# Optional — only needed for OCR (the automatic "read the handwriting
+# in this photo" pass that runs after you attach an image). Everything
+# else in the app works without this.
+#
+# Install with: pip install -r requirements-ocr.txt
+#
+# pytesseract is a thin Python wrapper — it does NOT bundle the actual
+# OCR engine. You also need the Tesseract system binary installed
+# separately (it's a couple minutes, not a Python package):
+#
+#   macOS:           brew install tesseract
+#   Ubuntu / Debian:  sudo apt-get install tesseract-ocr
+#   Windows:          https://github.com/UB-Mannheim/tesseract/wiki
+#
+# Verify it's on your PATH with: tesseract --version
+# See the README's Day 22 section for the full walkthrough.
+pytesseract==0.3.13

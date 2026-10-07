@@ -1,0 +1,9 @@
+# Optional — only needed for server-side voice transcription
+# (the "Record & transcribe (Whisper)" button). The browser's
+# live dictation (mic button) works without any of this.
+#
+# Install with: pip install -r requirements-voice.txt
+#
+# First transcription request downloads the model (~150MB for
+# "base") from Hugging Face — needs an internet connection once.
+faster-whisper==1.1.1

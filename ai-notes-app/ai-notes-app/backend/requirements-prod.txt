@@ -1,0 +1,18 @@
+# Lean requirements for a deployed server (see ../DEPLOY.md).
+#
+# Same as requirements.txt minus:
+#   - pytest              (tests aren't run in production)
+#   - sentence-transformers (pulls in PyTorch, ~GBs — too big for most small
+#                            hosts). Without it, "search inside note text"
+#                            falls back to keyword (TF-IDF) ranking; search
+#                            by note NAME is unaffected.
+# To get semantic search back on a bigger server, install requirements.txt
+# instead.
+Flask==3.1.3
+psycopg2-binary==2.9.12
+python-dotenv==1.2.2
+requests==2.32.5
+Pillow==11.0.0
+scikit-learn==1.7.2
+numpy==2.3.4
+gunicorn==26.2.0

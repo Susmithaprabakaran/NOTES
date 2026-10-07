@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sign up — AI Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="assets/favicon.png" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="auth-wrap">
+  <div class="auth-card">
+    <div class="auth-brand">
+      <img src="assets/logo-128.png" alt="AI Notes" width="40" height="40" />
+      <span>AI Notes</span>
+    </div>
+
+    <h1>Create your account</h1>
+    <p class="auth-sub">Your notes stay private to you</p>
+
+    <div class="auth-error" id="authError" hidden></div>
+
+    <form id="signupForm">
+      <div class="auth-field">
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text" autocomplete="username" required autofocus minlength="3" maxlength="32" pattern="[A-Za-z0-9_.-]{3,32}" />
+        <p class="auth-field-error"></p>
+        <p class="auth-hint">3-32 characters: letters, numbers, underscore, dot, or hyphen.</p>
+      </div>
+      <div class="auth-field">
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="new-password" required minlength="8" />
+        <p class="auth-field-error"></p>
+        <p class="auth-hint">At least 8 characters.</p>
+      </div>
+      <button type="submit" class="btn-auth" id="submitBtn">Sign up</button>
+    </form>
+
+    <p class="auth-switch">Already have an account? <a href="login.html">Log in</a></p>
+  </div>
+</div>
+
+<script src="config.js"></script>
+<script src="auth.js"></script>
+</body>
+</html>

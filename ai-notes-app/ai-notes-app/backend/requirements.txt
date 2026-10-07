@@ -1,0 +1,29 @@
+# Core requirements. For server-side voice transcription (optional,
+# heavier), also install requirements-voice.txt — see README. For OCR
+# (Day 22), also install requirements-ocr.txt AND the Tesseract system
+# binary — see README's Day 22 section.
+Flask==3.1.3
+psycopg2-binary==2.9.12
+python-dotenv==1.2.2
+pytest==9.1.1
+requests==2.32.5
+
+# Day 22: image preprocessing for OCR (grayscale/upscale/autocontrast/
+# binarize) lives in core requirements — it's a small, common dependency
+# and attachments.py's own thumbnail handling benefits from having it
+# around regardless of whether OCR itself is set up.
+Pillow==11.0.0
+
+# Day 17 — semantic search. sentence-transformers downloads its model
+# (~90MB) on first use and needs internet access for that one-time
+# download; after that it runs fully offline/locally, no API key, no
+# per-request cost. If this dependency isn't installed, search still
+# works — it just falls back to keyword (TF-IDF) ranking only. See
+# backend/embeddings.py and the README's Day 17 section.
+scikit-learn==1.7.2
+numpy==2.3.4
+sentence-transformers==5.1.2
+
+# Production WSGI server (see wsgi.py and ../DEPLOY.md). Not needed for
+# local development with run.py.
+gunicorn==26.2.0
